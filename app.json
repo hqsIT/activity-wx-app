@@ -1,8 +1,8 @@
 {
 	"pages": [
-		"pages/all/all",
-		"pages/detial/detial",
-		"pages/create/create",
+		"pages/activity/all/all",
+		"pages/activity/detail/detail",
+		"pages/activity/create/create",
 		"pages/my/my",
 		"pages/my/my-list",
 		"pages/my/about",
@@ -20,7 +20,7 @@
 		"borderStyle": "white",
 		"backgroundColor": "#ffffff",
 		"list": [{
-			"pagePath": "pages/all/all",
+			"pagePath": "pages/activity/all/all",
 			"iconPath": "image/icon_component.png",
 			"selectedIconPath": "image/icon_component_HL.png",
 			"text": "所有活动"

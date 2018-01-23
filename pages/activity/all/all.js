@@ -39,13 +39,13 @@
        return;
      }
      wx.navigateTo({
-       url: '/pages/detial/detial?id=' + id
+       url: '/pages/activity/detail/detail?id=' + id
      });
    },
    create: function (e) {
      console.log(e);     
      wx.navigateTo({
-       url: '/pages/create/create'
+       url: '/pages/activity/create/create'
      });
    },
    onPullDownRefresh: function() {
