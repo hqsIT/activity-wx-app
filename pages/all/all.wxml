@@ -15,10 +15,10 @@
             <view class="list-item">
                 <view bindtap="detial" data-id="{{item.id}}">
                     <view class="list-type list-type-money">{{item.type}}</view>
-                    <image class="list-avatar" src="{{item.cover}}"></image>
-                    <view class="list-name" data-id="{{item.id}}">{{item.title}}</view>               
-                    <view class="list-des" data-id="{{item.id}}">{{item.content}}
-                    </view>
+                    <image class="list-avatar" src="{{item.publisher.avatar}}"></image>
+                    <view class="list-name" data-id="{{item.id}}">{{item.publisher.nickname}}</view>          
+                    <view class="list-title" data-id="{{item.id}}">{{item.title}}</view>
+                    <view class="list-des" data-id="{{item.id}}">{{item.content}}</view>
                     <view>
                         <image class="item-image" mode="" src="{{item.cover}}"  data-id="{{item.id}}"></image>
                     </view>

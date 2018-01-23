@@ -49,8 +49,7 @@
         <text>参加成员</text>
       </view>
       <view class="m-t-10">
-        <image class="vm member-image" wx:for="{{users}}" wx:key="user.id" wx:for-item="user" src="{{user.avatarUrl}}"></image>
-        <text class="vm">{{user.name||user.nickName}}</text>
+        <image class="vm member-image" wx:for="{{joiners}}" wx:key="item.uid" wx:for-item="item" src="{{item.user_info.avatar}}"></image>
       </view>
     </view>
   </view>
