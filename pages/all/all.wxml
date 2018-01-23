@@ -27,7 +27,7 @@
                         <view class="list-icon-text vm"  data-id="{{item.id}}">
                           {{item.address}}
                           <view class="fr">                        
-                            <text class="vm color-1">0</text>/<text class="vm">{{item.number}}人报名</text>
+                            <text class="vm color-1">{{item.enroll_number}}</text> / <text class="vm">{{item.number}}人报名</text>
                           </view>
                         </view>
                     </view>

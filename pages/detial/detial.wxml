@@ -7,8 +7,8 @@
     <view class="block-info clearfix">
       <view class="block-info-left">
         <text class="vm">已报名</text>
-        <text class="color-1 vm">0</text>
-        <text class="vm">/{{number}}</text>
+        <text class="color-1 vm">{{enroll_number}}</text>
+        <text class="vm"> / {{number}}</text>
       </view>
       <view class="block-info-right">
         <text class="vm">活动类型: </text>
