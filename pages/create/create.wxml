@@ -106,9 +106,17 @@
             <input class="menu-text" placeholder="说些什么吧" name="content"></input>
           </view>
         </view>
-        <view class="menu-item">
+        <view class="menu-item" bindtap='selectCover'>
           <image class="menu-icon" src="/image/image.png"></image>
-          <input class="menu-text" type="text" name="cover" value="{{cover}}" placeholder="图片地址，多张图片以半角逗号分开"></input>
+           <view class="menu-text">
+            <text class="vm">封面图</text>
+          </view>
+          <view class="m-t-5">
+          <image class="" src="{{cover}}"></image>
+          </view>
+          <view class="hide">
+                  <input value="{{cover}}" disabled="true" name="cover"></input>
+                </view>
         </view>
       </view>
     </view>
