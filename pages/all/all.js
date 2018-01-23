@@ -3,14 +3,18 @@
  var getList = function() {
    var _this = this;
    wx.request({
-     url: app.globalData.domain + 'api/wxapp/get',
+     url: app.globalData.domain + 'activity/getLists',
+     header: {
+       'cookie': 'laravel_session='+wx.getStorageSync('authorization')
+     },
      data: {
-       time: app.globalData.getTime()
+       
      },
      method: 'GET',
      success: function(res) {
+       console.log(res);
        _this.setData({
-         allActivity: res.data
+         allActivity: res.data.data
        });
         wx.hideNavigationBarLoading();
      }
@@ -38,25 +42,26 @@
        url: '/pages/detial/detial?id=' + id
      });
    },
+   create: function (e) {
+     console.log(e);     
+     wx.navigateTo({
+       url: '/pages/create/create'
+     });
+   },
    onPullDownRefresh: function() {
      getList.call(this);
    },
    onLaunch:function(){
-    
+     
    },
    onShow: function() {
      getList.call(this);
-     app.login(function(res) {
-       console.log(res);
-     });
      wx.showNavigationBarLoading();
    },
    onReady: function() {
-    
-    
+     
    },
    onLoad: function() {
-     getList.call(this);
-    
+    //  getList.call(this);
    }
  });

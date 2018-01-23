@@ -211,12 +211,14 @@ body {
 /*list*/
 .list-box {
   margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom:1px solid #eee;
 }
 
 .list-item {
   position: relative;
-  border-bottom: 1px solid #eee;
-  padding: 10px 0;
+  /* border-bottom: 1px solid #eee; */
+  /* padding: 10px 0; */
 }
 
 .list-item::last {
@@ -246,6 +248,11 @@ body {
   margin-right: 5px;
   width: 100px;
   height: 100px;
+}
+.item-image {
+  margin-top: 10px;
+  margin-right: 5px;
+  width: 98%;
 }
 
 .list-address,
@@ -296,8 +303,8 @@ body {
 }
 
 .list-botton {
-  margin-top: 15rpx;
-  height: 40rpx;
+  /* margin-top: 15rpx;
+  height: 40rpx; */
   line-height: 40rpx;
   text-align: right;
 }
@@ -306,3 +313,8 @@ body {
   width: 20px;
   height: 20px;
 }
+
+.br {
+  flex-direction:column;
+}
+

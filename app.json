@@ -1,23 +1,16 @@
 {
 	"pages": [
-
 		"pages/all/all",
-
 		"pages/detial/detial",
-
 		"pages/create/create",
-		"pages/create/tpl",
-
 		"pages/my/my",
 		"pages/my/my-list",
 		"pages/my/about",
 		"pages/my/setting"
-
-
 	],
 	"window": {
 		"navigationBarTextStyle": "#fff",
-		"navigationBarTitleText": "报名吧",
+		"navigationBarTitleText": "莞工约球",
 		"navigationBarBackgroundColor": "#5dc890",
 		"backgroundColor": "#fbf9fe"
 	},
@@ -31,11 +24,6 @@
 			"iconPath": "image/icon_component.png",
 			"selectedIconPath": "image/icon_component_HL.png",
 			"text": "所有活动"
-		}, {
-			"pagePath": "pages/create/tpl",
-			"iconPath": "image/create_gray.png",
-			"selectedIconPath": "image/create.png",
-			"text": "快速创建"
 		}, {
 			"pagePath": "pages/my/my",
 			"iconPath": "image/icon_API.png",

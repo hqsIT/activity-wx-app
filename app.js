@@ -6,6 +6,13 @@ App({
     //var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     //wx.setStorageSync('logs', logs)
+    this.login(function (res) {
+      wx.setStorageSync('authorization', res.authorization);
+      wx.setStorageSync('openid', res.openId);
+
+      console.log(res);
+    });
+    console.log('start');
   },
   getUserInfo: function(cb) {
     var that = this
@@ -31,7 +38,8 @@ App({
 
     if (_this.globalData.opendID) {
       callback({
-        openID: _this.globalData.opendID
+        openID: _this.globalData.opendID,
+        authorization: _this.globalData.authorization
       });
     } else {
       wx.login({
@@ -41,25 +49,26 @@ App({
             success: function(res) {
 
               wx.request({
-                url: _this.globalData.domain + 'api/get-user-info',
+                url: _this.globalData.domain + 'user/wxLogin',
                 method: 'post',
                 data: {
                   userInfo: res.userInfo,
                   code: code,
                   APPID: _this.globalData.APPID,
-                  SECRET: _this.globalData.SECRET
                 },
                 success: function(res) {
-
+                  console.log(res)
                   if (callback && res && res.data) {
                     callback({
-                      openID: res.data.openid
+                      openID: res.data.data.openId,
+                      authorization: res.data.data.session_id
                     });
                   }
                 },
                 fail: function() {
                   callback({
-                    openID: null
+                    openID: null,
+                    authorization: null
                   });
                 }
               });
@@ -71,22 +80,23 @@ App({
     }
 
 
-    // wx.checkSession({
-    //   success: function(res) {
-    //     console.log('成功', res);
-    //   },
-    //   fail: function(res) {
-    //     console.log('失败', res);
-    //   }
-    // });
+    wx.checkSession({
+      success: function(res) {
+        console.log('成功', res);
+      },
+      fail: function(res) {
+        console.log('失败', res);
+      }
+    });
   },
   globalData: {
     getTime: function() {
       return new Date().getTime();
     },
-    domain: 'https://api.getweapp.com/vendor/huizecdn/',
-    APPID: 'wxe2ad8c364455262b',
-    SECRET: 'd119ef2dc7d07a5a0c476125e96a1552',
+    // domain: 'http://xhh.klinson.com/api/',
+    domain: 'http://127.0.0.1:8004/api/',
+    APPID: 'wx569ed62c17da1cae',
+    SECRET: 'b1dd4f1a57b984f11aff18390b7e4309',
     opendID: null,
     userInfo: null
   }

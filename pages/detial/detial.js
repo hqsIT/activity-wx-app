@@ -73,53 +73,49 @@ Page({
 		var _this = this;
 
 		wx.request({
-			url: app.globalData.domain + 'api/wxapp/get?id=' + options.id,
+			url: app.globalData.domain + 'activity/detail/' + options.id,
 			data: {
-				time: app.globalData.getTime()
-			},
-			method: 'GET',
-			success: function(res) {
-				res.data.map((e)=>{
-					if(e._id==options.id){
-						_this.setData(e);
-					}
-				})
-				wx.hideNavigationBarLoading();
-			}
-		});
-		//avatarUrl
-		wx.request({
-			url: app.globalData.domain + 'api/wxapp/activity-user?id=' + options.id,
-			data: {
-				time: app.globalData.getTime()
-			},
-			method: 'GET',
-			success: function(res) {
-
-				_this.setData({
-					users: res.data
-				});
 				
+			},
+			method: 'GET',
+			success: function(res) {
+        console.log(res);
+        _this.setData(res.data.data);
 			}
 		});
+		// //avatarUrl
+		// wx.request({
+		// 	url: app.globalData.domain + 'api/wxapp/activity-user?id=' + options.id,
+		// 	data: {
+		// 		time: app.globalData.getTime()
+		// 	},
+		// 	method: 'GET',
+		// 	success: function(res) {
 
-		app.getUserInfo(function(userInfo) {
-			wx.request({
-				url: app.globalData.domain + 'api/wxapp/activity-user?id=' + options.id,
-				data: {
-					time: app.globalData.getTime()
-				},
-				success: function(res) {
-					if (res && res.data && res.data.length) {
-						res.data.forEach(function(item) {
-							if (item.name === userInfo.nickName) {
-								setStatus.call(_this, true);
-							}
-						});
-					}
-				}
-			});
-		});
+		// 		_this.setData({
+		// 			users: res.data
+		// 		});
+				
+		// 	}
+		// });
+
+		// app.getUserInfo(function(userInfo) {
+		// 	wx.request({
+		// 		url: app.globalData.domain + 'api/wxapp/activity-user?id=' + options.id,
+		// 		data: {
+		// 			time: app.globalData.getTime()
+		// 		},
+		// 		success: function(res) {
+		// 			if (res && res.data && res.data.length) {
+		// 				res.data.forEach(function(item) {
+		// 					if (item.name === userInfo.nickName) {
+		// 						setStatus.call(_this, true);
+		// 					}
+		// 				});
+		// 			}
+		// 		}
+		// 	});
+		// });
 
 		setStatus.call(_this, false);
 		setTitle();
