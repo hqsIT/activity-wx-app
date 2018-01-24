@@ -45,28 +45,31 @@ Page({
 		
 		var _this = this;
 		//调用应用实例的方法获取全局数据
-		app.getUserInfo(function(userInfo) {
-			console.log(userInfo);
-			wx.request({
-				url: app.globalData.domain + 'api/wxapp/baomin?id=' + id,
-				data: {
-					nickName: userInfo.nickName,
-					avatarUrl: userInfo.avatarUrl,
-					time: app.globalData.getTime()
-				},
-				method: 'GET',
-				success: function(res) {
-					setStatus.call(_this, true);
-					wx.showToast({
-						title: '报名成功',
-						icon: 'success',
-						duration: 2000
-					});
-				},
-				fail: function() {},
-				complete: function() {}
-			});
-		});
+    wx.request({
+      url: app.globalData.domain + 'activity/enroll/' + id,
+      data: {
+        
+      },
+      method: 'GET',
+      success: function (res) {
+        // setStatus.call(_this, true);
+        if (res.data.code) {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'error',
+            duration: 2000
+          });
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'success',
+            duration: 2000
+          });
+        }
+      },
+      fail: function () { },
+      complete: function () { }
+    });
 	},
 	onLoad: function(options) {
 

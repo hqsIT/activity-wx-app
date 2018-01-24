@@ -41,13 +41,16 @@ Page({
   onShow: function (option) {
 
     getActivityTypes.call(this);
-    var newDate = new Date();
-    var now_time = [newDate.getHours(), newDate.getMinutes()].map(formatNumber).join(':')
-    this.setData({
-      start_time: now_time,
-      end_time: now_time,
-      date: [newDate.getFullYear(), newDate.getMonth() + 1, newDate.getDate()].map(formatNumber).join('-')
-    });
+    console.log(this.data.date);
+    if (this.data.date == '') {
+      var newDate = new Date();
+      var now_time = [newDate.getHours(), newDate.getMinutes()].map(formatNumber).join(':')
+      this.setData({
+        start_time: now_time,
+        end_time: now_time,
+        date: [newDate.getFullYear(), newDate.getMonth() + 1, newDate.getDate()].map(formatNumber).join('-')
+      });
+    }
     wx.setNavigationBarTitle({
       title: '创建报名'
     });
@@ -91,7 +94,7 @@ Page({
             console.log(res);
             let data = JSON.parse(res.data);
             _this.setData({
-              'cover': data.data.path
+              cover: data.data.path
             })
             //do something
           }
