@@ -57,7 +57,7 @@
 
   <view class="section">
     <button class="{{baoMin}}" type="primary" bindtap="join" data-id="{{id}}">我要报名</button>
-    <button class="{{baoMinChengGong}}" disabled>已经报名</button>
+    <button class="{{baoMinChengGong}}" disabled>{{tip}}</button>
   </view>
 
 </view>
