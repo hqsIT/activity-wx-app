@@ -3,8 +3,9 @@
 		"pages/activity/all/all",
 		"pages/activity/detail/detail",
 		"pages/activity/create/create",
-		"pages/my/my",
-		"pages/my/my-list",
+		"pages/my/my/my",
+		"pages/my/my-list/my-list",
+    "pages/my/my-join-list/my-join-list",
 		"pages/my/about",
 		"pages/my/setting"
 	],
@@ -25,7 +26,7 @@
 			"selectedIconPath": "image/icon_component_HL.png",
 			"text": "所有活动"
 		}, {
-			"pagePath": "pages/my/my",
+			"pagePath": "pages/my/my/my",
 			"iconPath": "image/icon_API.png",
 			"selectedIconPath": "image/icon_API_HL.png",
 			"text": "我"

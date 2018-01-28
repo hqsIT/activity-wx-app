@@ -3,12 +3,17 @@ Page({
     data: {
         userInfo: {},
         userName: 'kingwell',
-        signature: '心若没有归属感，走到哪里都是流浪。'
+        signature: ''
     },
     goToList: function() {
         wx.navigateTo({
-            url: '/pages/my/my-list'
+            url: '/pages/my/my-list/my-list'
         });
+    },
+    goToJoinList: function () {
+      wx.navigateTo({
+        url: '/pages/my/my-join-list/my-join-list'
+      });
     },
     onLoad: function() {
         wx.setNavigationBarTitle({
