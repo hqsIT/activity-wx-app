@@ -1,22 +1,8 @@
-var app = getApp();
-var _id = '';
-var getActivityTypes = function () {
-  var _this = this;
-  wx.request({
-    url: app.globalData.domain + 'activity/getTypes',
-    data: {
+const app = getApp();
+const https = app.https;
+const util = app.util;
 
-    },
-    method: 'GET',
-    success: function (res) {
-      console.log(res);
-      _this.setData({
-        activityTypes: res.data.data
-      });
-      wx.hideNavigationBarLoading();
-    }
-  });
-};
+var _id = '';
 var formatNumber = function (n) {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -33,6 +19,14 @@ Page({
     submitStatus: false,
     activityTypes: []
   },
+  onLoad: function (option) {
+    _id = option._id;
+
+    this.setData({
+      imageUrl: option.id,
+      theme: option.theme
+    });
+  },
   bindStartTimeChange: function (e) {
     this.setData({
       start_time: e.detail.value
@@ -40,7 +34,7 @@ Page({
   },
   onShow: function (option) {
 
-    getActivityTypes.call(this);
+    this.getActivityTypes();
     console.log(this.data.date);
     if (this.data.date == '') {
       var newDate = new Date();
@@ -51,9 +45,6 @@ Page({
         date: [newDate.getFullYear(), newDate.getMonth() + 1, newDate.getDate()].map(formatNumber).join('-')
       });
     }
-    wx.setNavigationBarTitle({
-      title: '创建报名'
-    });
   },
   bindEndTimeChange: function (e) {
     this.setData({
@@ -151,13 +142,9 @@ Page({
       app.getUserInfo(function (userInfo) {
 
         console.log(submitObject);
-        wx.request({
-          url: app.globalData.domain + 'activity/create',
-          data: submitObject,
-          method: 'post',
-          header: {
-            'cookie': 'laravel_session=' + wx.getStorageSync('authorization')
-          },
+        https.POST({
+          url: 'activity/create',
+          params: submitObject,
           success: function (res) {
             console.log(res);
             wx.hideToast();
@@ -167,7 +154,7 @@ Page({
               duration: 2000,
               complete: function () {
                 wx.switchTab({
-                  url: '../all/all'
+                  url: 'pages/index/index'
                 });
               }
             });
@@ -188,16 +175,17 @@ Page({
         }
       });
     }
-
   },
-  onLoad: function (option) {
-
-    _id = option._id;
-
-    this.setData({
-      imageUrl: option.id,
-      theme: option.theme
+  getActivityTypes: function () {
+    var _this = this;
+    https.GET({
+      url: 'activity/getTypes',
+      success: function (res) {
+        console.log(res);
+        _this.setData({
+          activityTypes: res.data.data
+        });
+      }
     });
   }
-
 });

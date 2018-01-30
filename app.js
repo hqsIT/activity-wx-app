@@ -1,18 +1,15 @@
-//app.js
+const util = require('utils/util.js');
+const https = require('utils/https.js');
 
 App({
+  util,
+  https,
   onLaunch: function() {
     //调用API从本地缓存中获取数据
-    //var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    //wx.setStorageSync('logs', logs)
     this.login(function (res) {
       wx.setStorageSync('authorization', res.authorization);
       wx.setStorageSync('openid', res.openId);
-
-      console.log(res);
     });
-    console.log('start');
   },
   getUserInfo: function(cb) {
     var that = this
@@ -93,8 +90,8 @@ App({
     getTime: function() {
       return new Date().getTime();
     },
-    // domain: 'http://xhh.klinson.com/api/',
-    domain: 'http://127.0.0.1:8004/api/',
+    domain: 'http://xhh.klinson.com/api/',
+    // domain: 'http://127.0.0.1:8004/api/',
     APPID: 'wx569ed62c17da1cae',
     SECRET: 'b1dd4f1a57b984f11aff18390b7e4309',
     opendID: null,

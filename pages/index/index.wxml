@@ -1,10 +1,44 @@
-<!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>
+    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+        <view id="red"  class="scroll-view-item_H bc_red">
+            <image class="scroll-view-item-img" src="http://img.huizecdn.com/test/002.jpg"></image>
+        </view>
+        <view id="yellow" class="scroll-view-item_H bc_yellow">
+            <image class="scroll-view-item-img" src="http://img.huizecdn.com/test/003.jpg"></image>
+        </view>
+    </scroll-view>
+    <view class="section">    
+        <view class="section-title"><view>活动列表</view><view class="create-btn" bindtap="create">发起活动</view></view>
+        
+        <view class="list-box clearfix" wx:for="{{allActivity}}" wx:key="akey">
+        
+            <view class="list-item">
+                <view bindtap="showDetial" data-id="{{item.id}}">
+                    <view class="list-type list-type-money">{{item.type}}</view>
+                    <image class="list-avatar" src="{{item.publisher.avatar}}"></image>
+                    <view class="list-name" data-id="{{item.id}}">{{item.publisher.nickname}}</view>          
+                    <view class="list-title" data-id="{{item.id}}">{{item.title}}</view>
+                    <view class="list-des" data-id="{{item.id}}">{{item.content}}</view>
+                    <view>
+                        <image class="item-image" mode="" src="{{item.cover}}"  data-id="{{item.id}}"></image>
+                    </view>
+                    <view class="list-address fz-10 m-t-5">
+                        <image class="list-icon vm" src="/image/address.png" data-id="{{item.id}}"></image>
+                        <view class="list-icon-text vm"  data-id="{{item.id}}">
+                          {{item.address}}
+                          <view class="fr">                        
+                            <text class="vm color-1">{{item.enroll_number}}</text> / <text class="vm">{{item.number}}人报名</text>
+                          </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="list-botton clearfix br fl">
+                    <view class="gray">
+                        <image class="list-icon vm" src="/image/time.png" data-id="{{item.id}}"></image>
+                        <text class="vm"> 活动时间: {{item.date}} {{item.start_time}}~{{item.end_time}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>   
+ </view>

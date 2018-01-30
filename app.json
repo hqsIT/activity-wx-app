@@ -1,6 +1,6 @@
 {
 	"pages": [
-		"pages/activity/all/all",
+		"pages/index/index",
 		"pages/activity/detail/detail",
 		"pages/activity/create/create",
 		"pages/my/my/my",
@@ -21,7 +21,7 @@
 		"borderStyle": "white",
 		"backgroundColor": "#ffffff",
 		"list": [{
-			"pagePath": "pages/activity/all/all",
+			"pagePath": "pages/index/index",
 			"iconPath": "image/icon_component.png",
 			"selectedIconPath": "image/icon_component_HL.png",
 			"text": "所有活动"
