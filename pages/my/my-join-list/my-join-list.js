@@ -6,7 +6,7 @@ Page({
   },
   goToJoin: function (e) {
     wx.switchTab({
-      url: '/pages/activity/all/all'
+      url: '/pages/index/index'
     })
   },
   detial: function (e) {

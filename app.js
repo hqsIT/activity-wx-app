@@ -12,7 +12,7 @@ App({
     });
   },
   getUserInfo: function(cb) {
-    var that = this
+    var that = this;
 
     if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
@@ -22,7 +22,7 @@ App({
         success: function() {
           wx.getUserInfo({
             success: function(res) {
-              that.globalData.userInfo = res.userInfo
+              that.globalData.userInfo = res.userInfo;
               typeof cb == "function" && cb(that.globalData.userInfo)
             }
           });
@@ -51,10 +51,10 @@ App({
                 data: {
                   userInfo: res.userInfo,
                   code: code,
-                  APPID: _this.globalData.APPID,
+                  APPID: _this.globalData.APPID
                 },
                 success: function(res) {
-                  console.log(res)
+                  console.log(res);
                   if (callback && res && res.data) {
                     callback({
                       openID: res.data.data.openId,
