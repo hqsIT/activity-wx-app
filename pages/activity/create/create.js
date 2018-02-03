@@ -154,7 +154,7 @@ Page({
               duration: 2000,
               complete: function () {
                 wx.switchTab({
-                  url: 'pages/index/index'
+                  url: '/pages/index/index'
                 });
               }
             });

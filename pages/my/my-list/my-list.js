@@ -1,4 +1,6 @@
 var app = getApp();
+const https = app.https;
+const util = app.util;
 
 Page({
   data: {
@@ -25,21 +27,16 @@ Page({
     });
     var _this = this;
     //调用应用实例的方法获取全局数据
-    wx.request({
-      url: app.globalData.domain + 'activity/myActivity',
-      header: {
-        'cookie': 'laravel_session=' + wx.getStorageSync('authorization')
-      },
-      data: {
-
-      },
-      method: 'GET',
+    https.GET({
+      url: 'activity/myActivity',
       success: function (res) {
         console.log(res);
         _this.setData({
           allActivity: res.data.data
         });
         wx.hideNavigationBarLoading();
+      },
+      fail: function (res) {
       }
     });
   }
