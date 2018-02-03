@@ -1,0 +1,34 @@
+<view class="container">
+  <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+    <view id="red" class="scroll-view-item_H bc_red">
+      <image class="scroll-view-item-img" src="http://img.huizecdn.com/test/002.jpg"></image>
+    </view>
+    <view id="yellow" class="scroll-view-item_H bc_yellow">
+      <image class="scroll-view-item-img" src="http://img.huizecdn.com/test/003.jpg"></image>
+    </view>
+  </scroll-view>
+  <view class="section">
+    <view class="section-title">
+      <view>分享列表</view>
+      <view class="create-btn" bindtap="create">点我分享</view>
+    </view>
+
+    <view class="list-box clearfix" wx:for="{{allShare}}" wx:key="akey">
+
+      <view class="list-item">
+        <view bindtap="showDetial" data-id="{{item.id}}">
+          <image class="list-avatar" src="{{item.publisher.avatar}}"></image>
+          <view class="list-name" data-id="{{item.id}}">{{item.publisher.nickname}}</view>
+          <view wx:if="{{item.content}}" class="list-title" data-id="{{item.id}}">{{item.content}}</view>
+          <view wx:if="{{item.share_pic}}">
+            <image class="item-image" mode="" src="{{item.share_pic}}" data-id="{{item.id}}"></image>
+          </view>
+        </view>
+        <view class="gray">
+          <image class="list-icon vm" src="/image/time.png" data-id="{{item.id}}"></image>
+          <text class="vm">{{item.create_time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

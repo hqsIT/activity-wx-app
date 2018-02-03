@@ -1,0 +1,33 @@
+<view class="container bg">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class="menu">
+        <view class="menu-item">
+          <image class="menu-icon" src="/image/text.png"></image>
+          <view class="menu-text">
+            <text class="vm">分享描述</text>
+          </view>
+          <view class="m-t-5">
+            <input class="menu-text" placeholder="说些什么吧" name="content"></input>
+          </view>
+        </view>
+        <view class="menu-item" bindtap='selectCover'>
+          <image class="menu-icon" src="/image/image.png"></image>
+           <view class="menu-text">
+            <text class="vm">分享图</text>
+          </view>
+          <view class="m-t-5">
+          <image class="" src="{{share_pic}}"></image>
+          </view>
+          <view class="hide">
+                  <input value="{{share_pic}}" disabled="true" name="share_pic"></input>
+                </view>
+        </view>
+      </view>
+    </view>
+    <view class="section">
+      <button class="" type="primary" disabled="{{submitStatus}}" form-type="submit">提交</button>
+    </view>
+  </form>
+
+</view>

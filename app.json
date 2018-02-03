@@ -7,7 +7,11 @@
 		"pages/my/my-list/my-list",
     "pages/my/my-join-list/my-join-list",
 		"pages/my/about",
-		"pages/my/setting"
+		"pages/my/setting",
+    "pages/share/list/list",
+    "pages/share/create/create",
+    "pages/share/detail/detail",
+    "pages/my/my-share/my-share"
 	],
 	"window": {
 		"navigationBarTextStyle": "#fff",
@@ -26,6 +30,11 @@
 			"selectedIconPath": "image/icon_component_HL.png",
 			"text": "所有活动"
 		}, {
+      "pagePath": "pages/share/list/list",
+      "iconPath": "image/icon_component.png",
+      "selectedIconPath": "image/icon_component_HL.png",
+      "text": "分享"
+    }, {
 			"pagePath": "pages/my/my/my",
 			"iconPath": "image/icon_API.png",
 			"selectedIconPath": "image/icon_API_HL.png",

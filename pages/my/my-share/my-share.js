@@ -4,12 +4,13 @@ const util = app.util;
 
 Page({
   data: {
-
+    allShare: []
   },
-  goToJoin: function (e) {
-    wx.switchTab({
-      url: '/pages/index/index'
-    })
+  create: function (e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '/pages/share/create/create'
+    });
   },
   detial: function (e) {
     var id = e.target.dataset.id;
@@ -17,18 +18,18 @@ Page({
       return;
     }
     wx.navigateTo({
-      url: '/pages/activity/detail/detail?id=' + id
+      url: '/pages/share/detail/detail?id=' + id
     });
   },
   onLoad: function () {
     var _this = this;
     //调用应用实例的方法获取全局数据
     https.GET({
-      url: 'activity/myJoinActivity',
+      url: 'share/my',
       success: function (res) {
         console.log(res);
         _this.setData({
-          allActivity: res.data.data
+          allShare: res.data.data
         });
         wx.hideNavigationBarLoading();
       },

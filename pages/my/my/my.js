@@ -15,10 +15,12 @@ Page({
             url: '/pages/my/my-join-list/my-join-list'
         });
     },
+    goToMyShareList: function () {
+      wx.navigateTo({
+        url: '/pages/my/my-share/my-share'
+      });
+    },
     onLoad: function() {
-        wx.setNavigationBarTitle({
-            title: '我'
-        });
         var _this = this;
         //调用应用实例的方法获取全局数据
         app.getUserInfo(function(userInfo) {
