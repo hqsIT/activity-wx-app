@@ -1,2 +1,49 @@
-<!--pages/share/detail/detail.wxml-->
-<text>pages/share/detail/detail.wxml</text>
+<view class="container">
+  <view class="banner" wx:if="{{info.share_pic}}">
+    <image class="" src="{{info.share_pic}}"></image>
+  </view>
+  <view class="block-area" wx:if="{{info.content}}">
+    <view class="title">{{info.content}}</view>
+  </view>
+  <view class="section">
+    <view class="menu-item">
+      <image class="menu-icon" src="{{info.publisher.avatar}}"></image>
+      <view class="menu-text">
+        <text>{{info.publisher.nickname}}</text>
+      </view>
+    </view>
+    <view class="menu-item">
+      <image class="menu-icon" src="/image/time.png"></image>
+      <view class="menu-text">
+        <text>{{info.create_time}}</text>
+      </view>
+    </view>
+    <view class="menu-item">
+      <image class="menu-icon" src="/image/people.png"></image>
+      <view class="menu-text">
+        <view>
+          点赞成员（{{info.favour_count}}）
+          <text bindtap='unFavour' data-id="{{info.id}}" wx:if="{{isFavoured}}"> [ 取消赞 ]</text>
+          <text bindtap='favour' data-id="{{info.id}}" wx:else> [ 点赞 ]</text>
+        </view>
+      </view>
+      <view class="m-t-10">
+        <image class="vm member-image" wx:for="{{joiners}}" wx:key="item.uid" wx:for-item="item" src="{{item.user_info.avatar}}"></image>
+      </view>
+    </view>
+    <view class="menu-item">
+      <image class="menu-icon" src="/image/people.png"></image>
+      <view class="menu-text">
+        <text>评论列表（{{info.comment_count}}）</text>
+      </view>
+      <view class="m-t-10">
+        <image class="vm member-image" wx:for="{{joiners}}" wx:key="item.uid" wx:for-item="item" src="{{item.user_info.avatar}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class="section">
+    <button class="{{baoMin}}" type="primary" bindtap="join" data-id="{{id}}">我要报名</button>
+    <button class="{{baoMinChengGong}}" disabled>{{tip}}</button>
+  </view>
+
+</view>
