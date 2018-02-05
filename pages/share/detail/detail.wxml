@@ -28,7 +28,7 @@
         </view>
       </view>
       <view class="m-t-10">
-        <image class="vm member-image" wx:for="{{joiners}}" wx:key="item.uid" wx:for-item="item" src="{{item.user_info.avatar}}"></image>
+        <image class="vm member-image" wx:for="{{info.favourers}}" wx:key="item.uid" wx:for-item="item" src="{{item.user_info.avatar}}"></image>
       </view>
     </view>
     <view class="menu-item">
